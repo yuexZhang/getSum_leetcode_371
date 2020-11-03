@@ -1,0 +1,8 @@
+class Solution {
+public:
+    int getSum(int a, int b) {
+        if(!b) return a;
+        int sum = a ^ b, carry = (a & b) << 1;//异或是不进位加法，10是1，01是1，11是0，00是0，差值补上（进位的值）；carry是进位（俩数都是1的话有进位），进位是下一位，所以左移一位。
+        return getSum(sum,carry);
+    }
+};
